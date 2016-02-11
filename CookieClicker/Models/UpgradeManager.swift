@@ -15,7 +15,10 @@ public class UpgradeManager {
     private var upgrades: [UpgradeType]
     
     private init() {
-        self.upgrades = [Upgrade_1_Click()]
+        self.upgrades = [
+            Upgrade_1_Click(),
+            Upgrade_2_Periodic(),
+        ]
     }
     
 }

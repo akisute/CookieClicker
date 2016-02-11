@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class UpgradesViewController: UIViewController {
+    
+    private let disposeBag: DisposeBag = DisposeBag()
     
     @IBOutlet var tableView: UITableView!
     
@@ -22,6 +26,16 @@ extension UpgradesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let cookieStackCountSubscription = CookieStackManager.instance.cookieStack.rx_count.subscribeOn(MainScheduler.instance).subscribe { event in
+            switch (event) {
+            case let .Next(count):
+                self.navigationItem.title = "Current xaxtsuxo: %@".localized([count.ingameDescription])
+            case .Error: break
+            case .Completed: break
+            }
+        }
+        self.disposeBag.addDisposable(cookieStackCountSubscription)
     }
     
 }

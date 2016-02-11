@@ -27,15 +27,15 @@ extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cookieStackCountStringSubscription = CookieStackManager.instance.cookieStack.rx_countString.subscribeOn(MainScheduler.instance).subscribe { event in
+        let cookieStackCountSubscription = CookieStackManager.instance.cookieStack.rx_count.subscribeOn(MainScheduler.instance).subscribe { event in
             switch (event) {
-            case let .Next(countString):
-                self.navigationItem.title = countString
+            case let .Next(count):
+                self.navigationItem.title = "Current xaxtsuxo: %@".localized([count.ingameDescription])
             case .Error: break
             case .Completed: break
             }
         }
-        self.disposeBag.addDisposable(cookieStackCountStringSubscription)
+        self.disposeBag.addDisposable(cookieStackCountSubscription)
         
         let cookieButtonSubscription = self.cookieButton.rx_controlEvent(.TouchDown).subscribeOn(MainScheduler.instance).subscribe { event in
             CookieStackManager.instance.cookieStack.add(1)

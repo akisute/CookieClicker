@@ -10,40 +10,37 @@ import Foundation
 import BigInt
 import RxSwift
 
-public struct Upgrade_1_Click: UpgradeType {
-    public var id: Int {
-        return 1
-    }
-    public var name: String {
-        return ""
-    }
-    public var desc: String {
-        return ""
-    }
-    
-    public private(set) var upgradeLevel: Int = 0
-    
-    public var upgradeCost: BigUInt {
-        return BigUInt(20 * self.upgradeLevel)
-    }
-    
-    public var rx_upgradeLevel: Observable<Int> {
-        // TODO
-        return Observable.just(self.upgradeLevel)
-    }
-    
-    public var rx_effect: Observable<BigUInt> {
-        // TODO
-        return Observable.never()
+public class Upgrade_1_Click: UpgradeBase {
+    public init() {
+        super.init(
+            id: 1,
+            name: "Upgrade_1_name".localized,
+            desc: "Upgrade_1_desc".localized,
+            upgradeCostFunc: { BigUInt($0 * 20) } )
     }
 }
+
+public class Upgrade_2_Periodic: UpgradeBase {
+    public init() {
+        super.init(
+            id: 1,
+            name: "Upgrade_2_name".localized,
+            desc: "Upgrade_2_desc".localized,
+            upgradeCostFunc: { BigUInt($0 * 400) } )
+    }
+}
+
+
 
 
 
 /*
-public struct DecotableUpgrade: UpgradeType {
+
+/// Upgrade that can be decoded from external JSON data rather than hard-coded.
+public struct DecodableUpgrade: UpgradeType {
     public init(json: String) {
         // decode json into the struct, including upgradeCost function and effect function
     }
 }
+
 */

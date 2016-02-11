@@ -23,6 +23,9 @@
 		0E2485391C6C54CC00E5C6C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485371C6C54CC00E5C6C4 /* LaunchScreen.storyboard */; };
 		0E2485441C6C54CD00E5C6C4 /* CookieClickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2485431C6C54CD00E5C6C4 /* CookieClickerTests.swift */; };
 		0E24854F1C6C54CD00E5C6C4 /* CookieClickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E24854E1C6C54CD00E5C6C4 /* CookieClickerUITests.swift */; };
+		0E2616901C6CF23A008764C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E2616921C6CF23A008764C7 /* Localizable.strings */; };
+		0E2616971C6CF72A008764C7 /* BigInt+CookieClicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2616961C6CF72A008764C7 /* BigInt+CookieClicker.swift */; };
+		0E2616991C6D00CE008764C7 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2616981C6D00CE008764C7 /* String+Localization.swift */; };
 		0E2ECA711C6C5CD4009723C1 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFAB82C1C6C59EE00E7C50D /* RxCocoa.framework */; };
 		0E2ECA721C6C5CD4009723C1 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFAB82C1C6C59EE00E7C50D /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E2ECA731C6C5CD4009723C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EFAB82E1C6C59EE00E7C50D /* RxSwift.framework */; };
@@ -87,6 +90,10 @@
 		0E24854A1C6C54CD00E5C6C4 /* CookieClickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookieClickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E24854E1C6C54CD00E5C6C4 /* CookieClickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieClickerUITests.swift; sourceTree = "<group>"; };
 		0E2485501C6C54CD00E5C6C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E2616911C6CF23A008764C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0E2616941C6CF248008764C7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0E2616961C6CF72A008764C7 /* BigInt+CookieClicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BigInt+CookieClicker.swift"; sourceTree = "<group>"; };
+		0E2616981C6D00CE008764C7 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		0EFAB82A1C6C59EE00E7C50D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = "<group>"; };
 		0EFAB82C1C6C59EE00E7C50D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
 		0EFAB82E1C6C59EE00E7C50D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
@@ -166,6 +173,7 @@
 		0E24852D1C6C54CC00E5C6C4 /* CookieClicker */ = {
 			isa = PBXGroup;
 			children = (
+				0E2616951C6CF70C008764C7 /* Extensions */,
 				0E01DFFE1C6C89A40085E25F /* Models */,
 				0E01DFFF1C6C89A40085E25F /* ViewControllers */,
 				0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */,
@@ -174,6 +182,7 @@
 				0E2485371C6C54CC00E5C6C4 /* LaunchScreen.storyboard */,
 				0E24853A1C6C54CC00E5C6C4 /* Info.plist */,
 				0E01E0111C6CA84D0085E25F /* InfoPlist.strings */,
+				0E2616921C6CF23A008764C7 /* Localizable.strings */,
 			);
 			path = CookieClicker;
 			sourceTree = "<group>";
@@ -194,6 +203,15 @@
 				0E2485501C6C54CD00E5C6C4 /* Info.plist */,
 			);
 			path = CookieClickerUITests;
+			sourceTree = "<group>";
+		};
+		0E2616951C6CF70C008764C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0E2616961C6CF72A008764C7 /* BigInt+CookieClicker.swift */,
+				0E2616981C6D00CE008764C7 /* String+Localization.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0EFAB81F1C6C59EE00E7C50D /* Carthage */ = {
@@ -330,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E2616901C6CF23A008764C7 /* Localizable.strings in Resources */,
 				0E2485391C6C54CC00E5C6C4 /* LaunchScreen.storyboard in Resources */,
 				0E01E00F1C6CA84D0085E25F /* InfoPlist.strings in Resources */,
 				0E2485361C6C54CC00E5C6C4 /* Assets.xcassets in Resources */,
@@ -364,8 +383,10 @@
 				0E01E0161C6CB36A0085E25F /* Upgrades.swift in Sources */,
 				0E01E00C1C6C99290085E25F /* CookieStackManager.swift in Sources */,
 				0E24852F1C6C54CC00E5C6C4 /* AppDelegate.swift in Sources */,
+				0E2616971C6CF72A008764C7 /* BigInt+CookieClicker.swift in Sources */,
 				0E01E01A1C6CB8E40085E25F /* UpgradeType.swift in Sources */,
 				0E01E0021C6C89A40085E25F /* MainViewController.swift in Sources */,
+				0E2616991C6D00CE008764C7 /* String+Localization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +447,15 @@
 				0E01E0131C6CA8650085E25F /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0E2616921C6CF23A008764C7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E2616911C6CF23A008764C7 /* Base */,
+				0E2616941C6CF248008764C7 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

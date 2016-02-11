@@ -19,25 +19,19 @@ public struct CookieStack {
     }
 }
 
-private extension CookieStack {
+extension CookieStack {
     
-}
-
-public extension CookieStack {
-    
-    public var countString: String {
-        return try! self.countSubject.value().description
+    public var count: BigUInt {
+        return try! self.countSubject.value()
     }
     
-    public var rx_countString: Observable<String> {
-        return self.countSubject.asObservable().map{ count in
-            return count.description
-        }
+    public var rx_count: Observable<BigUInt> {
+        return self.countSubject.asObservable()
     }
     
-    public func add(count: Int) {
+    public func add(count: BigUInt) {
         let value = try! self.countSubject.value()
-        self.countSubject.onNext(value + BigUInt(count))
+        self.countSubject.onNext(value + count)
     }
     
 }
