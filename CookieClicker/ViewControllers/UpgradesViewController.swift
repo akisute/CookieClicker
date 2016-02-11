@@ -30,7 +30,7 @@ extension UpgradesViewController {
         let cookieStackCountSubscription = CookieStackManager.instance.cookieStack.rx_count.subscribeOn(MainScheduler.instance).subscribe { event in
             switch (event) {
             case let .Next(count):
-                self.navigationItem.title = "Current xaxtsuxo: %@".localized([count.ingameDescription])
+                self.navigationItem.title = "Current xaxtsuxo: %@".localized(count.ingameDescription)
             case .Error: break
             case .Completed: break
             }

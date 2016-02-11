@@ -14,7 +14,7 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     
-    public func localized(args: [CVarArgType]) -> String {
+    public func localized(args: CVarArgType...) -> String {
         return NSString(format: self.localized, arguments: getVaList(args)) as String
     }
     
