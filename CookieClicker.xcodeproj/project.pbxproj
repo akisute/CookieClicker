@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0E01E0021C6C89A40085E25F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0001C6C89A40085E25F /* MainViewController.swift */; };
 		0E01E0031C6C89A40085E25F /* UpgradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0011C6C89A40085E25F /* UpgradesViewController.swift */; };
+		0E01E0051C6C90A40085E25F /* CookieStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0041C6C90A40085E25F /* CookieStack.swift */; };
+		0E01E0091C6C98200085E25F /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E01E0061C6C980C0085E25F /* BigInt.framework */; };
+		0E01E00A1C6C98200085E25F /* BigInt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E01E0061C6C980C0085E25F /* BigInt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E01E00C1C6C99290085E25F /* CookieStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E00B1C6C99290085E25F /* CookieStackManager.swift */; };
 		0E24852F1C6C54CC00E5C6C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */; };
 		0E2485341C6C54CC00E5C6C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485321C6C54CC00E5C6C4 /* Main.storyboard */; };
 		0E2485361C6C54CC00E5C6C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485351C6C54CC00E5C6C4 /* Assets.xcassets */; };
@@ -46,6 +50,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0E2ECA721C6C5CD4009723C1 /* RxCocoa.framework in Embed Frameworks */,
+				0E01E00A1C6C98200085E25F /* BigInt.framework in Embed Frameworks */,
 				0E2ECA741C6C5CD4009723C1 /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -56,6 +61,9 @@
 /* Begin PBXFileReference section */
 		0E01E0001C6C89A40085E25F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0E01E0011C6C89A40085E25F /* UpgradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradesViewController.swift; sourceTree = "<group>"; };
+		0E01E0041C6C90A40085E25F /* CookieStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieStack.swift; sourceTree = "<group>"; };
+		0E01E0061C6C980C0085E25F /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = "<group>"; };
+		0E01E00B1C6C99290085E25F /* CookieStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieStackManager.swift; sourceTree = "<group>"; };
 		0E24852B1C6C54CC00E5C6C4 /* CookieClicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieClicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E2485331C6C54CC00E5C6C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E2ECA711C6C5CD4009723C1 /* RxCocoa.framework in Frameworks */,
+				0E01E0091C6C98200085E25F /* BigInt.framework in Frameworks */,
 				0E2ECA731C6C5CD4009723C1 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +113,8 @@
 		0E01DFFE1C6C89A40085E25F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0E01E0041C6C90A40085E25F /* CookieStack.swift */,
+				0E01E00B1C6C99290085E25F /* CookieStackManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 		0EFAB8211C6C59EE00E7C50D /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				0E01E0061C6C980C0085E25F /* BigInt.framework */,
 				0EFAB82A1C6C59EE00E7C50D /* RxBlocking.framework */,
 				0EFAB82C1C6C59EE00E7C50D /* RxCocoa.framework */,
 				0EFAB82E1C6C59EE00E7C50D /* RxSwift.framework */,
@@ -329,7 +341,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E01E0051C6C90A40085E25F /* CookieStack.swift in Sources */,
 				0E01E0031C6C89A40085E25F /* UpgradesViewController.swift in Sources */,
+				0E01E00C1C6C99290085E25F /* CookieStackManager.swift in Sources */,
 				0E24852F1C6C54CC00E5C6C4 /* AppDelegate.swift in Sources */,
 				0E01E0021C6C89A40085E25F /* MainViewController.swift in Sources */,
 			);

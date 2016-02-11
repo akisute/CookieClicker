@@ -3,7 +3,7 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: carthage" time="304.473098">
+      <testcase classname="fastlane.lanes" name="0: carthage" time="311.778217">
         
       </testcase>
     
