@@ -51,9 +51,22 @@
                     <view key="view" contentMode="scaleToFill" id="F1a-pM-QB3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFr-50-GqV">
+                                <rect key="frame" x="210" y="210" width="180" height="180"/>
+                                <state key="normal" image="xaxtsuxo"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AFr-50-GqV" firstAttribute="centerY" secondItem="F1a-pM-QB3" secondAttribute="centerY" id="7f1-eg-J4i"/>
+                            <constraint firstItem="AFr-50-GqV" firstAttribute="centerX" secondItem="F1a-pM-QB3" secondAttribute="centerX" id="yVn-N1-lfs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xnV-9e-eCL"/>
+                    <connections>
+                        <outlet property="cookieButton" destination="AFr-50-GqV" id="RX5-la-EPw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Af8-Ow-Q32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,5 +125,6 @@
     <resources>
         <image name="Icon_Tab_Factory" width="25" height="25"/>
         <image name="Icon_Tab_Upgrades" width="25" height="25"/>
+        <image name="xaxtsuxo" width="180" height="180"/>
     </resources>
 </document>
