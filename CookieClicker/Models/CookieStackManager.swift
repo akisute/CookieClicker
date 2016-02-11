@@ -12,4 +12,8 @@ public class CookieStackManager {
     public static let instance: CookieStackManager = CookieStackManager()
     
     public let cookieStack: CookieStack = CookieStack()
+    
+    private init() {
+        
+    }
 }
