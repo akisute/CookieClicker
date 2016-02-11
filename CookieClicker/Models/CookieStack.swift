@@ -11,7 +11,12 @@ import RxSwift
 import BigInt
 
 public struct CookieStack {
+    private let disposeBag: DisposeBag = DisposeBag()
     private let countSubject:BehaviorSubject<BigUInt> = BehaviorSubject<BigUInt>(value: BigUInt(0))
+    
+    public init() {
+        self.disposeBag.addDisposable(self.countSubject)
+    }
 }
 
 private extension CookieStack {
@@ -19,16 +24,20 @@ private extension CookieStack {
 }
 
 public extension CookieStack {
+    
     public var countString: String {
-        do {
-            return try self.countSubject.value().description
-        } catch {
-            fatalError()
-        }
+        return try! self.countSubject.value().description
     }
+    
     public var rx_countString: Observable<String> {
         return self.countSubject.asObservable().map{ count in
             return count.description
         }
     }
+    
+    public func add(count: Int) {
+        let value = try! self.countSubject.value()
+        self.countSubject.onNext(value + BigUInt(count))
+    }
+    
 }

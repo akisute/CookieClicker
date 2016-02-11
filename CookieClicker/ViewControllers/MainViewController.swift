@@ -8,9 +8,14 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class MainViewController: UIViewController {
+    
     private let disposeBag: DisposeBag = DisposeBag()
+    
+    @IBOutlet var cookieButton: UIButton!
+    
 }
 
 extension MainViewController {
@@ -21,6 +26,7 @@ extension MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let cookieStackCountStringSubscription = CookieStackManager.instance.cookieStack.rx_countString.subscribeOn(MainScheduler.instance).subscribe { event in
             switch (event) {
             case let .Next(countString):
@@ -30,6 +36,11 @@ extension MainViewController {
             }
         }
         self.disposeBag.addDisposable(cookieStackCountStringSubscription)
+        
+        let cookieButtonSubscription = self.cookieButton.rx_controlEvent(.TouchDown).subscribeOn(MainScheduler.instance).subscribe { event in
+            CookieStackManager.instance.cookieStack.add(1)
+        }
+        self.disposeBag.addDisposable(cookieButtonSubscription)
     }
     
 }
