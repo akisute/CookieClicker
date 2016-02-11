@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E01E0021C6C89A40085E25F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0001C6C89A40085E25F /* MainViewController.swift */; };
+		0E01E0031C6C89A40085E25F /* UpgradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0011C6C89A40085E25F /* UpgradesViewController.swift */; };
 		0E24852F1C6C54CC00E5C6C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */; };
-		0E2485311C6C54CC00E5C6C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2485301C6C54CC00E5C6C4 /* ViewController.swift */; };
 		0E2485341C6C54CC00E5C6C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485321C6C54CC00E5C6C4 /* Main.storyboard */; };
 		0E2485361C6C54CC00E5C6C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485351C6C54CC00E5C6C4 /* Assets.xcassets */; };
 		0E2485391C6C54CC00E5C6C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485371C6C54CC00E5C6C4 /* LaunchScreen.storyboard */; };
@@ -53,9 +54,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E01E0001C6C89A40085E25F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0E01E0011C6C89A40085E25F /* UpgradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradesViewController.swift; sourceTree = "<group>"; };
 		0E24852B1C6C54CC00E5C6C4 /* CookieClicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieClicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0E2485301C6C54CC00E5C6C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E2485331C6C54CC00E5C6C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E2485351C6C54CC00E5C6C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E2485381C6C54CC00E5C6C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E01DFFE1C6C89A40085E25F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0E01DFFF1C6C89A40085E25F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E01E0001C6C89A40085E25F /* MainViewController.swift */,
+				0E01E0011C6C89A40085E25F /* UpgradesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		0E2485221C6C54CC00E5C6C4 = {
 			isa = PBXGroup;
 			children = (
@@ -123,8 +141,9 @@
 		0E24852D1C6C54CC00E5C6C4 /* CookieClicker */ = {
 			isa = PBXGroup;
 			children = (
+				0E01DFFE1C6C89A40085E25F /* Models */,
+				0E01DFFF1C6C89A40085E25F /* ViewControllers */,
 				0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */,
-				0E2485301C6C54CC00E5C6C4 /* ViewController.swift */,
 				0E2485321C6C54CC00E5C6C4 /* Main.storyboard */,
 				0E2485351C6C54CC00E5C6C4 /* Assets.xcassets */,
 				0E2485371C6C54CC00E5C6C4 /* LaunchScreen.storyboard */,
@@ -310,8 +329,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E2485311C6C54CC00E5C6C4 /* ViewController.swift in Sources */,
+				0E01E0031C6C89A40085E25F /* UpgradesViewController.swift in Sources */,
 				0E24852F1C6C54CC00E5C6C4 /* AppDelegate.swift in Sources */,
+				0E01E0021C6C89A40085E25F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
