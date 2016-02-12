@@ -7,18 +7,32 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 public class UpgradeManager {
     
     public static let instance = UpgradeManager()
     
-    private var upgrades: [UpgradeType]
+    private let upgradeVariables: Variable<[UpgradeType]>
     
     private init() {
-        self.upgrades = [
+        self.upgradeVariables = Variable([
             Upgrade_1_Click(),
             Upgrade_2_Periodic(),
-        ]
+            ])
+    }
+    
+}
+
+extension UpgradeManager {
+    
+    public var upgrades: [UpgradeType] {
+        return self.upgradeVariables.value
+    }
+    
+    public var rx_upgrades: Observable<[UpgradeType]> {
+        return self.upgradeVariables.asObservable()
     }
     
 }

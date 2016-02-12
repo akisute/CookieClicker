@@ -27,35 +27,21 @@ extension UpgradesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cookieStackCountSubscription = CookieStackManager.instance.cookieStack.rx_count.subscribeOn(MainScheduler.instance).subscribe { event in
-            switch (event) {
-            case let .Next(count):
-                self.navigationItem.title = "Current xaxtsuxo: %@".localized(count.ingameDescription)
-            case .Error: break
-            case .Completed: break
-            }
-        }
-        self.disposeBag.addDisposable(cookieStackCountSubscription)
-    }
-    
-}
-
-extension UpgradesViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        CookieStackManager.instance.cookieStack.rx_count.asDriver(onErrorJustReturn: 0).driveNext { count in
+            self.navigationItem.title = "Current xaxtsuxo: %@".localized(count.ingameDescription)
+            }.addDisposableTo(self.disposeBag)
+        
+        UpgradeManager.instance.rx_upgrades.bindTo(self.tableView.rx_itemsWithCellIdentifier("Cell", cellType: UITableViewCell.self)) { index, upgrade, cell in
+            }.addDisposableTo(self.disposeBag)
+        
+        self.tableView.rx_itemSelected.subscribeNext { indexPath in
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }.addDisposableTo(self.disposeBag)
+        
+        self.tableView.rx_modelSelected(UpgradeType.self).subscribeNext { upgrade in
+            debugPrint(upgrade)
+            }.addDisposableTo(self.disposeBag)
+        
     }
     
 }

@@ -107,10 +107,6 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="6EM-eO-cPT" id="F2a-mR-Zsy"/>
-                            <outlet property="delegate" destination="6EM-eO-cPT" id="k3Q-hT-EW6"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="89T-90-csT"/>
                     <connections>
