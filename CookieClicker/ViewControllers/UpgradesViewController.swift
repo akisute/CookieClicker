@@ -27,20 +27,29 @@ extension UpgradesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CookieStackManager.instance.cookieStack.rx_count.asDriver(onErrorJustReturn: 0).driveNext { count in
-            self.navigationItem.title = "Current xaxtsuxo: %@".localized(count.ingameDescription)
-            }.addDisposableTo(self.disposeBag)
+        InGame.instance.cookieStack.rx_count
+            .asDriver(onErrorJustReturn: 0)
+            .driveNext { count in
+                self.navigationItem.title = "Current xaxtsuxo: %@".localized(count.inGameDescription)
+            }
+            .addDisposableTo(self.disposeBag)
         
-        UpgradeManager.instance.rx_upgrades.bindTo(self.tableView.rx_itemsWithCellIdentifier("Cell", cellType: UITableViewCell.self)) { index, upgrade, cell in
-            }.addDisposableTo(self.disposeBag)
+        InGame.instance.rx_upgrades
+            .bindTo(self.tableView.rx_itemsWithCellIdentifier("Cell", cellType: UITableViewCell.self)) { index, upgrade, cell in
+            }
+            .addDisposableTo(self.disposeBag)
         
-        self.tableView.rx_itemSelected.subscribeNext { indexPath in
-            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            }.addDisposableTo(self.disposeBag)
+        self.tableView.rx_itemSelected
+            .bindNext { indexPath in
+                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+            .addDisposableTo(self.disposeBag)
         
-        self.tableView.rx_modelSelected(UpgradeType.self).subscribeNext { upgrade in
-            debugPrint(upgrade)
-            }.addDisposableTo(self.disposeBag)
+        self.tableView.rx_modelSelected(UpgradeType.self)
+            .bindNext { upgrade in
+                debugPrint("upgrade selected: \(upgrade)")
+            }
+            .addDisposableTo(self.disposeBag)
         
     }
     

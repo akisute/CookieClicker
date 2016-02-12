@@ -10,7 +10,7 @@ import Foundation
 import BigInt
 
 extension BigUInt {
-    public var ingameDescription: String {
+    public var inGameDescription: String {
         // TODO: describe self with K, M, G, etc...
         return self.description
     }

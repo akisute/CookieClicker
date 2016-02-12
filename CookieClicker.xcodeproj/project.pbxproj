@@ -12,11 +12,10 @@
 		0E01E0051C6C90A40085E25F /* CookieStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0041C6C90A40085E25F /* CookieStack.swift */; };
 		0E01E0091C6C98200085E25F /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E01E0061C6C980C0085E25F /* BigInt.framework */; };
 		0E01E00A1C6C98200085E25F /* BigInt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E01E0061C6C980C0085E25F /* BigInt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0E01E00C1C6C99290085E25F /* CookieStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E00B1C6C99290085E25F /* CookieStackManager.swift */; };
 		0E01E00F1C6CA84D0085E25F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E01E0111C6CA84D0085E25F /* InfoPlist.strings */; };
 		0E01E0161C6CB36A0085E25F /* Upgrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0151C6CB36A0085E25F /* Upgrades.swift */; };
-		0E01E0181C6CB3740085E25F /* UpgradeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0171C6CB3740085E25F /* UpgradeManager.swift */; };
 		0E01E01A1C6CB8E40085E25F /* UpgradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E01E0191C6CB8E40085E25F /* UpgradeType.swift */; };
+		0E0DF3AC1C6DE23A00056684 /* InGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0DF3AB1C6DE23A00056684 /* InGame.swift */; };
 		0E24852F1C6C54CC00E5C6C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */; };
 		0E2485341C6C54CC00E5C6C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485321C6C54CC00E5C6C4 /* Main.storyboard */; };
 		0E2485361C6C54CC00E5C6C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E2485351C6C54CC00E5C6C4 /* Assets.xcassets */; };
@@ -70,14 +69,13 @@
 		0E01E0011C6C89A40085E25F /* UpgradesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradesViewController.swift; sourceTree = "<group>"; };
 		0E01E0041C6C90A40085E25F /* CookieStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieStack.swift; sourceTree = "<group>"; };
 		0E01E0061C6C980C0085E25F /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BigInt.framework; sourceTree = "<group>"; };
-		0E01E00B1C6C99290085E25F /* CookieStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieStackManager.swift; sourceTree = "<group>"; };
 		0E01E0101C6CA84D0085E25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E01E0121C6CA8650085E25F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		0E01E0131C6CA8650085E25F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0E01E0141C6CA8650085E25F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E01E0151C6CB36A0085E25F /* Upgrades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upgrades.swift; sourceTree = "<group>"; };
-		0E01E0171C6CB3740085E25F /* UpgradeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeManager.swift; sourceTree = "<group>"; };
 		0E01E0191C6CB8E40085E25F /* UpgradeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeType.swift; sourceTree = "<group>"; };
+		0E0DF3AB1C6DE23A00056684 /* InGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InGame.swift; sourceTree = "<group>"; };
 		0E24852B1C6C54CC00E5C6C4 /* CookieClicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieClicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E24852E1C6C54CC00E5C6C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E2485331C6C54CC00E5C6C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,10 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				0E01E0041C6C90A40085E25F /* CookieStack.swift */,
-				0E01E00B1C6C99290085E25F /* CookieStackManager.swift */,
+				0E0DF3AB1C6DE23A00056684 /* InGame.swift */,
 				0E01E0191C6CB8E40085E25F /* UpgradeType.swift */,
 				0E01E0151C6CB36A0085E25F /* Upgrades.swift */,
-				0E01E0171C6CB3740085E25F /* UpgradeManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,16 +374,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E01E0181C6CB3740085E25F /* UpgradeManager.swift in Sources */,
 				0E01E0051C6C90A40085E25F /* CookieStack.swift in Sources */,
 				0E01E0031C6C89A40085E25F /* UpgradesViewController.swift in Sources */,
 				0E01E0161C6CB36A0085E25F /* Upgrades.swift in Sources */,
-				0E01E00C1C6C99290085E25F /* CookieStackManager.swift in Sources */,
 				0E24852F1C6C54CC00E5C6C4 /* AppDelegate.swift in Sources */,
 				0E2616971C6CF72A008764C7 /* BigInt+CookieClicker.swift in Sources */,
 				0E01E01A1C6CB8E40085E25F /* UpgradeType.swift in Sources */,
 				0E01E0021C6C89A40085E25F /* MainViewController.swift in Sources */,
 				0E2616991C6D00CE008764C7 /* String+Localization.swift in Sources */,
+				0E0DF3AC1C6DE23A00056684 /* InGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

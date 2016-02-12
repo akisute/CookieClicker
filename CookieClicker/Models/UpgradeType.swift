@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import BigInt
 import RxSwift
+import BigInt
 
 
 public protocol UpgradeType {
@@ -17,10 +17,6 @@ public protocol UpgradeType {
     var desc: String {get}
     var upgradeLevel: Int {get}
     var upgradeCost: BigUInt {get}
-    
-    var rx_upgradeLevel: Observable<Int> {get}
-    
-    func upgrade()
 }
 
 
@@ -28,30 +24,19 @@ public class UpgradeBase: UpgradeType {
     public let id: Int
     public let name: String
     public let desc: String
+    public private(set) var upgradeLevel: Int
     public let upgradeCostFunc: (Int) -> (BigUInt)
     
-    private let upgradeLevelSubject: BehaviorSubject<Int> = BehaviorSubject(value: 0)
     
     public init(id: Int, name: String, desc: String, upgradeCostFunc: (Int) -> (BigUInt)) {
         self.id = id
         self.name = name
         self.desc = desc
+        self.upgradeLevel = 0
         self.upgradeCostFunc = upgradeCostFunc
-    }
-    
-    public var upgradeLevel: Int {
-        return try! self.upgradeLevelSubject.value()
     }
     
     public var upgradeCost: BigUInt {
         return self.upgradeCostFunc(self.upgradeLevel)
-    }
-    
-    public var rx_upgradeLevel: Observable<Int> {
-        return self.upgradeLevelSubject.asObservable()
-    }
-    
-    public func upgrade() {
-        self.upgradeLevelSubject.onNext(self.upgradeLevel + 1)
     }
 }

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import BigInt
 import RxSwift
+import BigInt
 
 public class Upgrade_1_Click: UpgradeBase {
     public init() {
