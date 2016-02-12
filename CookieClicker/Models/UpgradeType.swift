@@ -17,6 +17,8 @@ public protocol UpgradeType {
     var desc: String {get}
     var upgradeLevel: Int {get}
     var upgradeCost: BigUInt {get}
+    
+    func upgrade()
 }
 
 
@@ -26,7 +28,6 @@ public class UpgradeBase: UpgradeType {
     public let desc: String
     public private(set) var upgradeLevel: Int
     public let upgradeCostFunc: (Int) -> (BigUInt)
-    
     
     public init(id: Int, name: String, desc: String, upgradeCostFunc: (Int) -> (BigUInt)) {
         self.id = id
@@ -39,4 +40,9 @@ public class UpgradeBase: UpgradeType {
     public var upgradeCost: BigUInt {
         return self.upgradeCostFunc(self.upgradeLevel)
     }
+    
+    public func upgrade() {
+        self.upgradeLevel += 1
+    }
+    
 }

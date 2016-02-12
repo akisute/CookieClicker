@@ -34,4 +34,9 @@ extension CookieStack {
         self.countSubject.onNext(value + count)
     }
     
+    public func sub(count: BigUInt) {
+        let value = try! self.countSubject.value()
+        self.countSubject.onNext(value - count)
+    }
+    
 }

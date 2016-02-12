@@ -44,7 +44,24 @@ extension UpgradesViewController {
             .addDisposableTo(self.disposeBag)
         
         self.tableView.rx_itemSelected
+            .flatMapLatest { indexPath in
+                return InGame.instance.action_upgrade(indexPath.row).observeOn(MainScheduler.instance)
+            }
+            .bindTo(AnyObserver { event in
+                switch (event) {
+                case .Next():
+                    debugPrint("upgraded")
+                case let .Error(error):
+                    // TODO: this is not good, returning error on events means terminating the sequence thus we can't receive any further events on this observer. Should return values in next with result enum.
+                    debugPrint(error)
+                case .Completed: break
+                }
+                })
+            .addDisposableTo(self.disposeBag)
+        
+        self.tableView.rx_itemSelected
             .bindNext { indexPath in
+                InGame.instance.action_upgrade(indexPath.row)
                 self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }
             .addDisposableTo(self.disposeBag)
