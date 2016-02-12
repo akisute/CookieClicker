@@ -27,6 +27,9 @@ extension UpgradesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 120.0
+        
         InGame.instance.cookieStack.rx_count
             .asDriver(onErrorJustReturn: 0)
             .driveNext { count in
@@ -35,7 +38,8 @@ extension UpgradesViewController {
             .addDisposableTo(self.disposeBag)
         
         InGame.instance.rx_upgrades
-            .bindTo(self.tableView.rx_itemsWithCellIdentifier("Cell", cellType: UITableViewCell.self)) { index, upgrade, cell in
+            .bindTo(self.tableView.rx_itemsWithCellIdentifier("Cell", cellType: UpgradesListCell.self)) { index, upgrade, cell in
+                cell.upgrade = upgrade
             }
             .addDisposableTo(self.disposeBag)
         

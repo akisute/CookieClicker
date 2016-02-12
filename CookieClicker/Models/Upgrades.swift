@@ -16,7 +16,7 @@ public class Upgrade_1_Click: UpgradeBase {
             id: 1,
             name: "Upgrade_1_name".localized,
             desc: "Upgrade_1_desc".localized,
-            upgradeCostFunc: { BigUInt($0 * 20) } )
+            upgradeCostFunc: { BigUInt(($0 + 1) * 20) } )
     }
 }
 
@@ -26,7 +26,7 @@ public class Upgrade_2_Periodic: UpgradeBase {
             id: 1,
             name: "Upgrade_2_name".localized,
             desc: "Upgrade_2_desc".localized,
-            upgradeCostFunc: { BigUInt($0 * 400) } )
+            upgradeCostFunc: { BigUInt(($0 + 1) * 400) } )
     }
 }
 

@@ -6,4 +6,12 @@
   Copyright © 2016年 akisute. All rights reserved.
 */
 
-"Current xaxtsuxo: %@" = "現在のぁっぉ: %@";
+"Current xaxtsuxo: %@" = "現在のぁっぉパワー: %@";
+"Lv %@" = "レベル %@";
+"Cost: %@" = "コスト: %@";
+
+"Upgrade_1_name" = "ぁっぉセンス";
+"Upgrade_1_desc" = "ぁっぉセンスを高めることで、ぁっぉをクリックした時により効率的にぁっぉパワーを集めることができるぞ。";
+
+"Upgrade_2_name" = "Slackbot";
+"Upgrade_2_desc" = "Slackbotを使うとslackの皆が定期的にぁっぉパワーを集めてくれるぞ。またSlackbotをアップグレードすると一部の他のアップグレードの効率が改善するぞ。";

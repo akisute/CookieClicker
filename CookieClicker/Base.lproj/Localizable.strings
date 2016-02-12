@@ -6,4 +6,12 @@
   Copyright © 2016年 akisute. All rights reserved.
 */
 
-"Current xaxtsuxo: %@" = "Current xaxtsuxo: %@";
+"Current xaxtsuxo: %@" = "Current xaxtsuxo energy: %@";
+"Lv %@" = "Lv %@";
+"Cost: %@" = "Cost: %@";
+
+"Upgrade_1_name" = "Sense of xaxtsuxo";
+"Upgrade_1_desc" = "By increasing your sense against xaxtsuxo's activity, you can gain xatsuxo energy efficiently when you click on the idol of xaxsuxo.";
+
+"Upgrade_2_name" = "Slackbot";
+"Upgrade_2_desc" = "Slackbot allows you gain xatsuxo energy periodically by letting other guys in slack work for you. Upgrading slackbot also increases effectivity of some other upgrades.";
