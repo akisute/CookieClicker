@@ -36,7 +36,7 @@ extension MainViewController {
         
         self.cookieButton.rx_controlEvent(.TouchDown)
             .flatMapLatest {
-                return InGame.instance.action_click().asDriver(onErrorJustReturn: 0)
+                return ControlEvent(events: InGame.instance.action_click())
             }.bindNext { gain in
                 debugPrint("click: gained \(gain)")
             }

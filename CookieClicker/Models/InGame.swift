@@ -42,7 +42,7 @@ extension InGame {
 
 extension InGame {
     
-    func action_click() -> Observable<BigUInt> {
+    public func action_click() -> Observable<BigUInt> {
         return Observable.create { [unowned self] observer in
             let gain = BigUInt(1)
             self.cookieStack.add(gain)
@@ -52,23 +52,29 @@ extension InGame {
         }
     }
     
-    func action_upgrade(index: Int) -> Observable<Void> {
+    public enum UpgradeResult {
+        case Success
+        case NotEnoughCost
+    }
+    
+    public func action_upgrade(index: Int) -> Observable<InGame.UpgradeResult> {
         return Observable.create { [unowned self] observer in
             var upgrades = self.upgrades
             if (index < 0 || index >= upgrades.count) {
-                observer.on(.Error(RxCocoaError.Unknown))
+                observer.on(.Error(RxError.ArgumentOutOfRange))
                 return AnonymousDisposable {}
             }
             let upgrade = upgrades[index]
             if (upgrade.upgradeCost > self.cookieStack.count) {
-                observer.on(.Error(RxCocoaError.Unknown))
+                observer.on(.Next(.NotEnoughCost))
+                observer.on(.Completed)
                 return AnonymousDisposable {}
             }
             self.cookieStack.sub(upgrade.upgradeCost)
             upgrade.upgrade()
             upgrades[index] = upgrade
             self.upgradesVariable.value  = upgrades
-            observer.on(.Next())
+            observer.on(.Next(.Success))
             observer.on(.Completed)
             return AnonymousDisposable {}
         }
