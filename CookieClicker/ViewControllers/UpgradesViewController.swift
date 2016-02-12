@@ -38,7 +38,8 @@ extension UpgradesViewController {
             .addDisposableTo(self.disposeBag)
         
         InGame.instance.rx_upgrades
-            .bindTo(self.tableView.rx_itemsWithCellIdentifier("Cell", cellType: UpgradesListCell.self)) { index, upgrade, cell in
+            .asDriver(onErrorJustReturn: [])
+            .drive(self.tableView.rx_itemsWithCellIdentifier("Cell", cellType: UpgradesListCell.self)) { index, upgrade, cell in
                 cell.upgrade = upgrade
             }
             .addDisposableTo(self.disposeBag)
