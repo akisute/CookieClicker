@@ -1,3 +1,5 @@
 lane :carthage do
-  carthage(platform: 'iOS')
+  # carthage must run with --no-use-binaries to avoid this lldb crash
+  # https://github.com/Carthage/Carthage/issues/924
+  carthage(platform: 'iOS', use_binaries: false)
 end
