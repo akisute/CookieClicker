@@ -41,8 +41,7 @@ public class Upgrade_2_Periodic: UpgradeBase {
                 return BigUInt((upgrade.upgradeLevel + 1) * 40)
             },
             onClickFunc: { upgrade, inGame, baseValue in
-                return (BigUInt(0), Double(upgrade.upgradeLevel) * 5)
-//                return (BigUInt(0), Double(upgrade.upgradeLevel) * 0.005)
+                return (BigUInt(0), Double(upgrade.upgradeLevel) * 0.005)
             },
             onTickFunc: { upgradeLevel, inGame in
                 return BigUInt(0)

@@ -52,7 +52,7 @@ extension InGame {
             })
 
             let gainBase = (baseValue + bonusValue)
-            let gainPercentBonus = gainBase.divideByDigit(100).div * BigUInt(Int(bonusPercent * 100))
+            let gainPercentBonus =  (gainBase * BigUInt(Int(bonusPercent * 100))).divideByDigit(100).div
             let gain = gainBase + gainPercentBonus
             print("onClick - bonusValue:\(bonusValue), bonusPercent:\(bonusPercent), gainBase:\(gainBase), gainPercentBonus:\(gainPercentBonus), gain:\(gain)")
             
