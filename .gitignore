@@ -25,3 +25,6 @@ Podfile.lock
 #Carthage
 Carthage
 
+#fastlane
+fastlane/report.xml
+
