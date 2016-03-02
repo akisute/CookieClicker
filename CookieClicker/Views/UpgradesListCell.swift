@@ -18,10 +18,11 @@ class UpgradesListCell: UITableViewCell {
     var upgrade: UpgradeType? {
         didSet {
             if let upgrade = upgrade {
+                let upgradeCost = upgrade.upgradeCost(InGame.instance)
                 self.nameLabel.text = upgrade.name
                 self.descLabel.text = upgrade.desc
                 self.upgradeLevelLabel.text = "Lv %@".localized(upgrade.upgradeLevel.description)
-                self.upgradeCostLabel.text = "Cost: %@".localized(upgrade.upgradeCost.inGameDescription)
+                self.upgradeCostLabel.text = "Cost: %@".localized(upgradeCost.inGameDescription)
             } else {
                 self.nameLabel.text = ""
                 self.descLabel.text = ""

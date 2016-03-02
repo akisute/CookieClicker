@@ -11,22 +11,43 @@ import RxSwift
 import BigInt
 
 public class Upgrade_1_Click: UpgradeBase {
+    public static let ID: Int = 1
     public init() {
         super.init(
-            id: 1,
+            id: Upgrade_1_Click.ID,
             name: "Upgrade_1_name".localized,
             desc: "Upgrade_1_desc".localized,
-            upgradeCostFunc: { BigUInt(($0 + 1) * 20) } )
+            upgradeCostFunc: { upgrade, inGame in
+                return BigUInt((upgrade.upgradeLevel + 1) * 20)
+            },
+            onClickFunc: { upgrade, inGame, baseValue in
+                return (BigUInt(upgrade.upgradeLevel * 1), 0)
+            },
+            onTickFunc: { upgrade, inGame in
+                return BigUInt(0)
+            }
+        )
     }
 }
 
 public class Upgrade_2_Periodic: UpgradeBase {
+    public static let ID: Int = 2
     public init() {
         super.init(
-            id: 1,
+            id: Upgrade_2_Periodic.ID,
             name: "Upgrade_2_name".localized,
             desc: "Upgrade_2_desc".localized,
-            upgradeCostFunc: { BigUInt(($0 + 1) * 400) } )
+            upgradeCostFunc: { upgrade, inGame in
+                return BigUInt((upgrade.upgradeLevel + 1) * 40)
+            },
+            onClickFunc: { upgrade, inGame, baseValue in
+                return (BigUInt(0), Double(upgrade.upgradeLevel) * 5)
+//                return (BigUInt(0), Double(upgrade.upgradeLevel) * 0.005)
+            },
+            onTickFunc: { upgradeLevel, inGame in
+                return BigUInt(0)
+            }
+        )
     }
 }
 
@@ -38,9 +59,9 @@ public class Upgrade_2_Periodic: UpgradeBase {
 
 /// Upgrade that can be decoded from external JSON data rather than hard-coded.
 public struct DecodableUpgrade: UpgradeType {
-    public init(json: String) {
-        // decode json into the struct, including upgradeCost function and effect function
-    }
+public init(json: String) {
+// decode json into the struct, including upgradeCost function and effect function
+}
 }
 
 */

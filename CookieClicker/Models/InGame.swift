@@ -44,7 +44,18 @@ extension InGame {
     
     public func action_click() -> Observable<BigUInt> {
         return Observable.create { [unowned self] observer in
-            let gain = BigUInt(1)
+            let baseValue = BigUInt(1)
+            let (bonusValue, bonusPercent): (BigUInt, Double) = self.upgrades.reduce((BigUInt(0), 0), combine: { currentBonuses, upgrade in
+                let (currentValue, currentPercent) = currentBonuses
+                let (upgradeValue, upgradePercent) = upgrade.onClickFunc(upgrade, self, baseValue)
+                return (currentValue + upgradeValue, currentPercent + upgradePercent)
+            })
+
+            let gainBase = (baseValue + bonusValue)
+            let gainPercentBonus = gainBase.divideByDigit(100).div * BigUInt(Int(bonusPercent * 100))
+            let gain = gainBase + gainPercentBonus
+            print("onClick - bonusValue:\(bonusValue), bonusPercent:\(bonusPercent), gainBase:\(gainBase), gainPercentBonus:\(gainPercentBonus), gain:\(gain)")
+            
             self.cookieStack.add(gain)
             observer.on(.Next(gain))
             observer.on(.Completed)
@@ -65,13 +76,14 @@ extension InGame {
                 return AnonymousDisposable {}
             }
             let upgrade = upgrades[index]
-            if (upgrade.upgradeCost > self.cookieStack.count) {
+            let upgradeCost = upgrade.upgradeCost(self)
+            if (upgradeCost > self.cookieStack.count) {
                 observer.on(.Next(.NotEnoughCost))
                 observer.on(.Completed)
                 return AnonymousDisposable {}
             }
-            self.cookieStack.sub(upgrade.upgradeCost)
-            upgrade.upgrade()
+            self.cookieStack.sub(upgradeCost)
+            upgrade.upgrade(self)
             upgrades[index] = upgrade
             self.upgradesVariable.value  = upgrades
             observer.on(.Next(.Success))
