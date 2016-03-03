@@ -16,5 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         return true
     }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        InGame.instance.start()
+    }
+    
+    func applicationWillResignActive(application: UIApplication) {
+        InGame.instance.pause()
+    }
 }
 

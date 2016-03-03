@@ -43,8 +43,13 @@ public class Upgrade_2_Periodic: UpgradeBase {
             onClickFunc: { upgrade, inGame, baseValue in
                 return (BigUInt(0), Double(upgrade.upgradeLevel) * 0.005)
             },
-            onTickFunc: { upgradeLevel, inGame in
-                return BigUInt(0)
+            onTickFunc: { upgrade, inGame in
+                let gameTime: Int = Int(inGame.clock.gameTime)
+                if gameTime % 5 == 0 {
+                    return BigUInt(upgrade.upgradeLevel * 1)
+                } else {
+                    return BigUInt(0)
+                }
             }
         )
     }
